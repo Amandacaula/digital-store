@@ -1,9 +1,11 @@
 function ProductView() {
-return (
-    
-        <h1>Product View</h1>
-    
-)
+    return (
+
+        <Layout>
+            <h1>Product View</h1>
+        </Layout>
+
+    )
 };
 
 export default ProductView;
