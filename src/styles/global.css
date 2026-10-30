@@ -19,6 +19,8 @@
     --light-gray-3:#f5f5f5;
     --white:#ffffff;
 
+    --page-color:#f9f8fe;
+
 }
 
 /*.header_login{
@@ -31,3 +33,10 @@
     padding:0;
     box-sizing:border-box;
 }   
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-gray-2);
+    background-color: var(--page-color);
+    -webkit-font-smoothing: antialiased;
+}
