@@ -1,0 +1,10 @@
+.header{
+    background-color: var(--white);
+}
+
+.header_top{
+    display:flex;
+    align-items:center;
+    gap: 40px;
+    padding: 34px 0 30px;
+}

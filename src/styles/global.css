@@ -21,6 +21,8 @@
 
     --page-color:#f9f8fe;
 
+    --container-width: 1240px;
+
 }
 
 /*.header_login{
@@ -39,4 +41,11 @@ body{
     color: var(--dark-gray-2);
     background-color: var(--page-color);
     -webkit-font-smoothing: antialiased;
+}
+
+.container{
+    width: 100%;
+    max-width:calc(var(--container-width)+32px);
+    margin: 0 auto;
+    padding: 0 16px;
 }

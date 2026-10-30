@@ -1,0 +1,10 @@
+.logo{
+    display:inline-block;
+    flex-shrink:0;
+}
+
+.logo img{
+    width: 253px;;
+    height:44px;
+
+}
