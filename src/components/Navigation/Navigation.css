@@ -1,0 +1,24 @@
+.navigation ul {
+    display: flex;
+    gap: 32px;
+}
+
+.navigation_link{
+    display: inline-block;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    letter-spacing: 0.75px;
+    color: var(--dark-gray-2);
+    transition: color 0.2s;
+}
+
+.navigation_link:hover {
+    color: var(--primary);
+}
+
+.navigation_link.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    font-weight: 700;
+}
