@@ -2,13 +2,17 @@
     background-color: var(--white);
 }
 
-.header_top{
-    display:flex;
-    align-items:center;
+.header_top {
+    display: flex;
+    align-items: center;
     gap: 40px;
     padding: 34px 0 30px;
 }
 
-.header_navigation{
+.header_search {
+    flex: 1;
+}
+
+.header_navigation {
     padding-bottom: 24px;
 }
