@@ -25,10 +25,6 @@
 
 }
 
-/*.header_login{
-    background-color: var(--primary);
-}*/
-
 *,*::before,
 *::after{
     margin:0;
@@ -48,4 +44,15 @@ body{
     max-width:calc(var(--container-width)+32px);
     margin: 0 auto;
     padding: 0 16px;
+}
+
+/* Classe para esconder elementos visualmente, mas mantê-los acessíveis para leitores de tela */
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    
 }
