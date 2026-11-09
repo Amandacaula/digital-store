@@ -4,6 +4,38 @@
     color: var(--white);
 }
 
+.footer_content{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.1fr 1fr;
+    gap: 32px;
+    padding-bottom: 60px;
+}
+
+.footer_about{
+    max-width: 330px;
+}
+
+.footer_description{
+    margin: 28px 0 40px;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.footer_social{
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.footer_social a{
+    display: flex;
+    transition: opacity 0.2s;
+}
+
+.footer_social a:hover{
+    opacity: 0.7;
+}
+
 .footer_divider{
     border:none;
     border-top: 1px solid var(--dark-gray-3);

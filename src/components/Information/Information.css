@@ -1,0 +1,22 @@
+.information_title{
+    margin-bottom: 28px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.information_list{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.information_list a{
+    font-size: 16px;
+    line-height: 26px;
+    color: var(--white);
+}
+
+.information_list a:hover{
+    text-decoration: underline;
+}
