@@ -1,6 +1,11 @@
 import {Link} from "react-router-dom";
 import "./Information.css";
 
+function isExternal(link) {
+    return /^(https?:|tel:|mailto:)/.test(link);
+}
+
+//Coluna de informações do footer.
 function Information({title, informations}) {
   return (
     <div className="information">
@@ -9,7 +14,15 @@ function Information({title, informations}) {
         <ul className="information__list">
             {informations.map((information) => (
                 <li key={information.text}>
-                    <Link to={information.link}>{information.text}</Link>
+                    {isExternal(information.link) ? (
+                        <a href={information.link} target="_blank" rel="noreferrer">
+                            {information.text}
+                        </a>
+                    ) : (
+                        <Link to={information.link}>
+                            {information.text}
+                        </Link>
+                    )}
                 </li>
             ))}
         </ul>

@@ -36,8 +36,8 @@ function Footer() {
                         </ul>
                     </div>
 
-                    <Information title="Informações" information={footerInformations} />
-                    <Information title="Categorias" information={footerCategories} />
+                    <Information title="Informação" informations={footerInformations} />
+                    <Information title="Categorias" informations={footerCategories} />
 
                     <div className="footer_contact">
                         <Information title="Contato" informations={footerContact} />

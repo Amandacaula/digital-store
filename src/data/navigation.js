@@ -29,7 +29,7 @@ export const footerContact=[
 ];
 
 export const socialLinks = [
-  { text: "Facebook", link: "https://www.facebook.com/dripstoreoficial" },
-  { text: "Instagram", link: "https://www.instagram.com/dripstoreoficial/" },
-  { text: "Twitter", link: "https://twitter.com/dripstoreoficial" },
+  { name: "Facebook", link: "https://www.facebook.com/dripstoreoficial" },
+  { name: "Instagram", link: "https://www.instagram.com/dripstoreoficial/" },
+  { name: "Twitter", link: "https://twitter.com/dripstoreoficial" },
 ];
