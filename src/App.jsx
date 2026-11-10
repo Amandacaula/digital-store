@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import ProductListing from './pages/ProductListing/ProductListing';
 import ProductView from './pages/ProductView/ProductView';
+import MessagePage from './pages/MessagePage/MessagePage';
 
 function App() {
   
@@ -13,6 +14,17 @@ function App() {
       <Route path="/produtos" element={<ProductListing />} />
       <Route path="/products" element={<ProductListing />} />
       <Route path="/product/:id" element={<ProductView />} />
+
+      <Route path="/categorias" element={<MessagePage title="Categorias" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
+      />
+      <Route path="/meus-pedidos" element={<MessagePage title="Meus Pedidos" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
+      />
+      <Route path="/login" element={<MessagePage title="Entrar" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
+      />
+      <Route path="/cadastro" element={<MessagePage title="Cadastre-se" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
+      />
+      <Route path="*" element={<MessagePage title="Página não encontrada" text="O endereço acessado não existe." />}
+      />
     </Routes>
   </BrowserRouter>
   );

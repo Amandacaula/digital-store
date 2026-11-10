@@ -1,0 +1,19 @@
+.message-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:16px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.message-page h1{
+    font-size: 32px;
+    color: var(--dark-gray);
+}
+
+.message-page p{
+    font-size: 16px;
+    margin-bottom: 16px;
+}
