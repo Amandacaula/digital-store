@@ -12,3 +12,17 @@ export function SearchIcon() {
         </svg>
     );
 }
+
+export function ArrowRightIcon() {
+    return (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+                d="M4 12H20M14 6L20 12L14 18"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+            />
+        </svg>
+    );
+}

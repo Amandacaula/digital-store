@@ -4,13 +4,15 @@ import ProductListing from "../../components/ProductListing/ProductListing";
 import { products } from "../../data/products";
 import "./HomePage.css";
 
+const trendingProducts = products.slice(0, 8);
+
 function HomePage() {
         return (
                 <Layout>
-                        <h1>Home</h1>
+                        
                         <div className="container home-page">
-                                <Section title="Produtos em alta">
-                                        <ProductListing products={products} />
+                                <Section title="Produtos em alta" link={{ text: "Ver todos", href: "/produtos" }}>
+                                        <ProductListing products={trendingProducts} />
                                 </Section>
                         </div>
                 </Layout>
