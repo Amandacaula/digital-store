@@ -18,17 +18,17 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="container">
-                <div className="footer_content">
-                    <div className="footer_about">
+                <div className="footer__content">
+                    <div className="footer__about">
                         <Logo variant="footer" />
-                        <p className="footer_description">
+                        <p className="footer__description">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                             incididunt ut labore et dolore magna aliqua.</p>
 
-                        <ul className="footer_social">
+                        <ul className="footer__social">
                             {socialLinks.map((social) => (
                                 <li key={social.name}>
-                                    <a href={social.link} target="_blank" rel="noreferrer" arial-label={social.name}>
+                                    <a href={social.link} target="_blank" rel="noreferrer" aria-label={social.name}>
                                         <img src={socialIcons[social.name]} alt="" />
                                     </a>
                                 </li>
@@ -39,14 +39,14 @@ function Footer() {
                     <Information title="Informação" informations={footerInformations} />
                     <Information title="Categorias" informations={footerCategories} />
 
-                    <div className="footer_contact">
+                    <div className="footer__contact">
                         <Information title="Contato" informations={footerContact} />
                     </div>
                 </div>
 
 
-                    <hr className="footer_divider" />
-                    <p className="footer_copyright"> &copy; {currentYear} Digital Store.</p>
+                    <hr className="footer__divider" />
+                    <p className="footer__copyright"> &copy; {currentYear} Digital Store.</p>
 
                 </div>
         </footer>

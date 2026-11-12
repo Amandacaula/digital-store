@@ -3,7 +3,7 @@
     --secondary:#b5b6f2;
     --tertiary:#991956;
     --error: #ee4266;
-    --sucess:#52ca76;
+    --success:#52ca76;
     --warning:#f6aa1c;
 
     --primary-g:#edabca;
@@ -20,6 +20,7 @@
     --white:#ffffff;
 
     --page-color:#f9f8fe;
+    --badge-background: #e7ff86;
 
     --container-width: 1240px;
 
@@ -36,7 +37,7 @@
 }   
 
 body{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--dark-gray-2);
     background-color: var(--page-color);
     -webkit-font-smoothing: antialiased;
@@ -65,7 +66,7 @@ ul{
 
 .container{
     width: 100%;
-    max-width:calc(var(--container-width)+32px);
+    max-width:calc(var(--container-width) + 32px);
     margin: 0 auto;
     padding: 0 16px;
 }
@@ -88,6 +89,18 @@ ul{
 
 .button:hover{
     background-color: var(--tertiary);
+}
+
+/*Selo de desconto*/
+.badge{
+    display:inline-block;
+    padding: 4px 14px;
+    border-radius: 29px;
+    background-color: var(--badge-background);
+    color: var(--dark-gray-2);
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.75px;
 }
 
 /* Classe para esconder elementos visualmente, mas mantê-los acessíveis para leitores de tela */
