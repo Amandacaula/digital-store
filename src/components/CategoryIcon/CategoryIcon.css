@@ -1,0 +1,38 @@
+.category-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  color: var(--dark-gray-3);
+}
+
+.category-icon__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.category-icon__name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+  transition: color 0.2s;
+}
+
+/* No hover a categoria fica rosa, como a "Camisetas" do protótipo */
+.category-icon:hover .category-icon__circle {
+  color: var(--primary);
+  transform: translateY(-4px);
+}
+
+.category-icon:hover .category-icon__name {
+  color: var(--primary);
+}
