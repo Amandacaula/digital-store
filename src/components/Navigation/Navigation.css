@@ -3,7 +3,7 @@
     gap: 32px;
 }
 
-.navigation_link{
+.navigation__link{
     display: inline-block;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
@@ -13,11 +13,11 @@
     transition: color 0.2s;
 }
 
-.navigation_link:hover {
+.navigation__link:hover {
     color: var(--primary);
 }
 
-.navigation_link.active {
+.navigation__link.active {
     color: var(--primary);
     border-bottom-color: var(--primary);
     font-weight: 700;
