@@ -2,7 +2,7 @@ import {NavLink, useLocation} from "react-router-dom";
 import { mainLinks } from "../../data/navigation";
 import "./Navigation.css";
 
-const product_routes = ["/produtos", "products", "/product/"];
+const product_routes = ["/produtos", "/products", "/product/"];
 //NAvegação principal do site, com links para as principais páginas
   function Navigation() {
     const { pathname } = useLocation();
