@@ -6,8 +6,8 @@ export const filterGroups = [
     field: "brand",
     inputType: "checkbox",
     options: [
-      { text: "Adiddas", value: "Adidas" },
-      { text: "Calenciaga", value: "Balenciaga" },
+      { text: "Adidas", value: "Adidas" },
+      { text: "Balenciaga", value: "Balenciaga" },
       { text: "K-Swiss", value: "K-Swiss" },
       { text: "Nike", value: "Nike" },
       { text: "Puma", value: "Puma" },

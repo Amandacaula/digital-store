@@ -3,6 +3,34 @@
   padding-bottom: 100px;
 }
 
+/* A seção vira referência para posicionar o "Ordenar por" no canto direito */
+.listing-page__section {
+  position: relative;
+}
+
+.listing-page__section .section__header {
+  min-height: 60px;
+  margin-bottom: 24px;
+}
+
+.listing-page__section .section__title {
+  font-size: 16px;
+  letter-spacing: 0.75px;
+}
+
+.listing-page__count {
+  font-weight: 400;
+}
+
+.listing-page__toolbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 16px;
+}
+
+
 .listing-page__section .section__header {
   min-height: 60px;
   margin-bottom: 24px;
