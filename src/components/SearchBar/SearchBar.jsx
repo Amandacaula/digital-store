@@ -22,7 +22,7 @@ function SearchBar ({className=""}) {
     }
     return (
         <form className={`search-bar ${className}`} onSubmit={handleSubmit} role="search">
-            <label htmlFor="search-input" className="sr-only">
+            <label htmlFor="search-input" className="sr-only"> Pesquisar Produto
                 </label>
             <input
                 id="search-input"
