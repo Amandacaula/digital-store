@@ -1,0 +1,33 @@
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+}
+
+.filter-group__title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}
+
+.filter-group__option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+  cursor: pointer;
+}
+
+/* "accent-color" pinta o checkbox/radio marcado com a cor primária */
+.filter-group__option input {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}

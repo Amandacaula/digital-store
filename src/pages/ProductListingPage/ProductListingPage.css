@@ -1,0 +1,47 @@
+.listing-page {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.listing-page__section .section__header {
+  min-height: 60px;
+  margin-bottom: 24px;
+}
+
+.listing-page__section .section__title {
+  font-size: 16px;
+  letter-spacing: 0.75px;
+}
+
+.listing-page__count {
+  font-weight: 400;
+}
+.listing-page__body {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+
+.listing-page__body .product-listing,
+.listing-page__body .product-listing__empty {
+  flex: 1;
+  gap: 40px 14px;
+}
+
+.listing-page__sidebar {
+  width: 308px;
+  flex-shrink: 0;
+  padding: 30px;
+  border-radius: var(--radius);
+  background-color: var(--white);
+}
+
+.listing-page__sidebar-title {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--light-gray-2);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}

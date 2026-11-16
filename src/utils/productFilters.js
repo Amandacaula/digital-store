@@ -13,3 +13,13 @@ export function matchesSearch(product, search) {
   const searchableText = [product.name, product.type, product.brand, product.category].join(" ");
   return normalize(searchableText).includes(normalize(search));
 }
+/*
+ * Verifica se o produto atende aos filtros marcados.
+ * Um grupo sem nada marcado não filtra nada.
+ */
+export function matchesFilters(product, selectedFilters) {
+  return Object.entries(selectedFilters).every(([field, values]) => {
+    return values.length === 0 || values.includes(product[field]);
+  });
+}
+
