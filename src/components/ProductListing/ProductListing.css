@@ -1,5 +1,12 @@
-.product-listing{
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 40px 20px;
+.product-listing {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: 40px 24px;
+}
+
+.product-listing__empty {
+  padding: 60px 0;
+  text-align: center;
+  font-size: 16px;
+  color: var(--dark-gray-3);
 }

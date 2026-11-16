@@ -1,7 +1,7 @@
 import './App.css'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
-import ProductListing from './pages/ProductListing/ProductListing';
+import ProductListingPage from './pages/ProductListingPage/ProductListingPage';
 import ProductView from './pages/ProductView/ProductView';
 import MessagePage from './pages/MessagePage/MessagePage';
 
@@ -11,8 +11,8 @@ function App() {
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/produtos" element={<ProductListing />} />
-      <Route path="/products" element={<ProductListing />} />
+      <Route path="/produtos" element={<ProductListingPage />} />
+      <Route path="/products" element={<ProductListingPage />} />
       <Route path="/product/:id" element={<ProductView />} />
 
       <Route path="/categorias" element={<MessagePage title="Categorias" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
