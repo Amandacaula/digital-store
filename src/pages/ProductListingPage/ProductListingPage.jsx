@@ -46,6 +46,11 @@ function ProductListingPage() {
     setSelectedFilters({ ...selectedFilters, [field]: newValues });
   }
 
+  function clearFilters() {
+    setSelectedFilters(EMPTY_FILTERS);
+  }
+
+
 
   // A lista exibida é calculada a cada renderização a partir do estado atual
   const visibleProducts = products.filter((product) => matchesSearch(product, search) && matchesFilters(product, selectedFilters)
@@ -68,7 +73,12 @@ function ProductListingPage() {
          <div className="listing-page__body">
             <aside className="listing-page__sidebar">
               <h2 className="listing-page__sidebar-title">Filtrar por</h2>
-              <ProductFilters selectedFilters={selectedFilters} onChange={handleFilterChange} />
+               <ProductFilters
+                selectedFilters={selectedFilters}
+                onChange={handleFilterChange}
+                onClear={clearFilters}
+              />
+
             </aside>
 
 
