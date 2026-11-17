@@ -19,6 +19,43 @@
   color: var(--dark-gray-3);
 }
 
+.buy-box__rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -10px;
+}
+
+.buy-box__stars {
+  display: flex;
+  gap: 2px;
+  color: var(--warning);
+}
+
+/* Caixa laranja com a nota e uma estrela branca */
+.buy-box__score {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius);
+  background-color: var(--warning);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.buy-box__score svg {
+  width: 14px;
+  height: 14px;
+}
+
+.buy-box__rating-count {
+  font-size: 14px;
+  color: var(--light-gray);
+}
+
+
 .buy-box__prices {
   display: flex;
   align-items: baseline;

@@ -27,6 +27,22 @@ export function ArrowRightIcon() {
     );
 }
 
+// Estrela de avaliação: "filled" define se ela aparece preenchida ou só com contorno
+export function StarIcon({ filled = true }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        d="M12 2.5L14.9 8.6L21.5 9.4L16.6 14L17.9 20.5L12 17.2L6.1 20.5L7.4 14L2.5 9.4L9.1 8.6L12 2.5Z"
+        fill={filled ? "currentColor" : "none"}
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+
 /*Icones das categorias da home*/
 export function TShirtIcon() {
   return (
@@ -102,4 +118,5 @@ export function SneakerIcon() {
     </svg>
   );
 }
+
 
