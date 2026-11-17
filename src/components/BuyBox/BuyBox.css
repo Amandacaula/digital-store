@@ -1,0 +1,87 @@
+.buy-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buy-box__name {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 1px;
+  color: var(--dark-gray);
+}
+
+.buy-box__reference {
+  margin-top: -10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dark-gray-3);
+}
+
+.buy-box__prices {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.buy-box__price {
+  color: var(--dark-gray-2);
+}
+
+.buy-box__currency {
+  margin-right: 4px;
+  font-size: 16px;
+}
+
+.buy-box__reais {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.buy-box__cents {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* Preço original riscado */
+.buy-box__old-price {
+  font-size: 16px;
+  color: var(--light-gray-2);
+  text-decoration: line-through;
+}
+
+.buy-box__subtitle,
+.buy-box__option-title {
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--light-gray);
+}
+
+.buy-box__description p {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.25px;
+  color: var(--dark-gray-2);
+}
+
+.buy-box__buy-button {
+  width: 220px;
+  height: 48px;
+  margin-top: 4px;
+  border-radius: 8px;
+  background-color: var(--warning);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: filter 0.2s;
+}
+
+.buy-box__buy-button:hover {
+  filter: brightness(0.92);
+}

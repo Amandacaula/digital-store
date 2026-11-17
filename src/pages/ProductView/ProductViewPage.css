@@ -13,3 +13,7 @@
 .product-view__gallery {
   flex: 0 1 700px;
 }
+.product-view__main .buy-box {
+  flex: 1;
+  max-width: 440px;
+}

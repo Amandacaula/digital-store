@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Gallery from "../../components/Gallery/Gallery";
+import BuyBox from "../../components/BuyBox/BuyBox";
+import ProductOptions from "../../components/ProductOptions/ProductOptions";
 import MessagePage from "../MessagePage/MessagePage";
 import { getProductById } from "../../data/products";
 import "./ProductViewPage.css";
@@ -44,6 +46,28 @@ function ProductViewPage() {
             radius="4px"
             showThumbs
           />
+
+            <BuyBox
+            name={product.name}
+            category={product.category}
+            brand={product.brand}
+            reference={product.reference}
+            price={product.price}
+            priceDiscount={product.priceDiscount}
+            description={product.description}
+          >
+            <div>
+              <h2 className="buy-box__option-title">Tamanho</h2>
+              <ProductOptions options={product.sizes} shape="square" type="text" radius="4px" />
+            </div>
+
+
+            <div>
+              <h2 className="buy-box__option-title">Cor</h2>
+              <ProductOptions options={product.colors} shape="circle" type="color" />
+            </div>
+          </BuyBox>
+
         </div>
 
       </div>
