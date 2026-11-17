@@ -2,3 +2,14 @@
   padding-top: 30px;
   padding-bottom: 100px;
 }
+/* Galeria à esquerda e caixa de compra à direita */
+.product-view__main {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 36px 0 80px;
+}
+
+.product-view__gallery {
+  flex: 0 1 700px;
+}

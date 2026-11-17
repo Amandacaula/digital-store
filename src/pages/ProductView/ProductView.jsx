@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import Gallery from "../../components/Gallery/Gallery";
 import MessagePage from "../MessagePage/MessagePage";
 import { getProductById } from "../../data/products";
 import "./ProductViewPage.css";
@@ -34,6 +35,17 @@ function ProductViewPage() {
     <Layout>
       <div className="container product-view">
         <Breadcrumb items={breadcrumbItems} />
+        <div className="product-view__main">
+          <Gallery
+            className="product-view__gallery"
+            images={product.images}
+            width="700px"
+            height="570px"
+            radius="4px"
+            showThumbs
+          />
+        </div>
+
       </div>
     </Layout>
   );
