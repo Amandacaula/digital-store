@@ -1,0 +1,22 @@
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 14px;
+  letter-spacing: 0.25px;
+  color: var(--dark-gray-2);
+}
+
+/* Barra "/" entre os itens */
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin: 0 8px;
+}
+
+.breadcrumb li:first-child {
+  font-weight: 700;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
