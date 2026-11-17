@@ -1,0 +1,55 @@
+.product-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-options__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Formato quadrado: largura automática e 46px de altura */
+.product-options__item--square {
+  min-width: 46px;
+  height: 46px;
+  padding: 0 10px;
+  border: 1px solid var(--light-gray-2);
+  background-color: var(--white);
+}
+
+/* Formato círculo: 31px x 31px */
+.product-options__item--circle {
+  width: 31px;
+  height: 31px;
+  border: 2px solid transparent;
+}
+
+.product-options__item--text {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}
+
+.product-options__item:hover {
+  border-color: var(--primary);
+}
+
+/* Opção selecionada: borda de 2px na cor primária */
+.product-options__item.is-selected {
+  border: 2px solid var(--primary);
+}
+
+/* Tamanho selecionado fica preenchido de rosa, como no Figma */
+.product-options__item--text.is-selected {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Cor selecionada ganha um anel com um espaço branco por dentro */
+.product-options__item--color.is-selected {
+  box-shadow: inset 0 0 0 2px var(--white);
+}
