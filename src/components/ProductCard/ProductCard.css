@@ -73,3 +73,30 @@
 .product-card:hover .product-card__name{
     color: var(--primary);
 }
+
+@media (max-width: 768px) {
+  .product-card__image {
+    margin-bottom: 12px;
+  }
+
+  .product-card__badge {
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .product-card__type {
+    font-size: 10px;
+  }
+
+  .product-card__name {
+    font-size: 14px;
+    line-height: 22px;
+  }
+
+  .product-card__prices {
+    gap: 8px;
+    font-size: 16px;
+  }
+}

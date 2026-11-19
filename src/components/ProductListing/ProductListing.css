@@ -10,3 +10,17 @@
   font-size: 16px;
   color: var(--dark-gray-3);
 }
+
+@media (max-width: 1024px) {
+  .product-listing {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* No celular sempre 2 colunas */
+@media (max-width: 768px) {
+  .product-listing {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 10px;
+  }
+}

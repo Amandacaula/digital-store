@@ -46,3 +46,29 @@
     text-align:center;
     font-size: 12px;
 }
+
+/* Celular e tablet  */
+@media (max-width: 1024px) {
+  .footer {
+    padding-top: 40px;
+  }
+
+  .footer__content {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 40px;
+  }
+
+  .footer__about,
+  .footer__contact {
+    grid-column: 1 / -1;
+    max-width: none;
+  }
+
+  .footer__about .logo img {
+    width: 166px;
+  }
+
+  .footer__description {
+    margin: 16px 0 24px;
+  }
+}
