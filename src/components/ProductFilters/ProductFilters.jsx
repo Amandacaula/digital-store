@@ -3,11 +3,9 @@ import { filterGroups } from "../../data/filters";
 import "./ProductFilters.css";
 
 
-/*
- * Todos os grupos de filtro da página de produtos.
- */
+/*Todos os grupos de filtro da página de produtos.*/
 
-function ProductFilters({ selectedFilters, onChange, onClear }) {
+function ProductFilters({ selectedFilters, onChange, onClear, idPrefix  }) {
   const hasSelectedFilters = Object.values(selectedFilters).some((values) => values.length > 0);
 
   return (
@@ -18,7 +16,7 @@ function ProductFilters({ selectedFilters, onChange, onClear }) {
           title={group.title}
           inputType={group.inputType}
           options={group.options}
-          name={group.field}
+          name={`${idPrefix}-${group.field}`}
           selectedValues={selectedFilters[group.field]}
           onChange={(value, checked) => onChange(group.field, group.inputType, value, checked)}
         />

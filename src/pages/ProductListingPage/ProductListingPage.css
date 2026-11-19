@@ -30,6 +30,19 @@
   gap: 16px;
 }
 
+/* Botão de filtro q só aparece no celular */
+.listing-page__filter-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: var(--white);
+}
+
 
 .listing-page__section .section__header {
   min-height: 60px;
@@ -44,6 +57,7 @@
 .listing-page__count {
   font-weight: 400;
 }
+
 .listing-page__body {
   display: flex;
   align-items: flex-start;
@@ -72,4 +86,51 @@
   font-weight: 700;
   letter-spacing: 0.75px;
   color: var(--dark-gray-2);
+}
+
+.listing-page__drawer-filters {
+  padding-top: 20px;
+  border-top: 1px solid var(--light-gray-2);
+}
+
+/*  Tablet: barra lateral sai e os filtros vão para o painel */
+@media (max-width: 1024px) {
+  .listing-page {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+
+  /* Coloca o "Ordenar por" e o botão de filtro acima do título */
+  .listing-page__section {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listing-page__toolbar {
+    position: static;
+    order: -1;
+    margin-bottom: 20px;
+  }
+
+  .listing-page__filter-button {
+    display: flex;
+  }
+
+  .listing-page__section .section__header {
+    min-height: auto;
+  }
+
+  .listing-page__sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .listing-page__section .section__title {
+    font-size: 14px;
+  }
+
+  .listing-page__body .product-listing {
+    gap: 32px 10px;
+  }
 }

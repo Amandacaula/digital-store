@@ -52,3 +52,23 @@
 .sort-select:focus-within {
   border-color: var(--primary);
 }
+
+@media (max-width: 768px) {
+  .sort-select {
+    flex: 1;
+    width: auto;
+    padding: 0 12px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .sort-select select {
+    padding-right: 18px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+
+  .sort-select::after {
+    right: 14px;
+  }
+}

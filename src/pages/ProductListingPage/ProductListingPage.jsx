@@ -5,6 +5,8 @@ import Section from "../../components/Section/Section";
 import ProductListing from "../../components/ProductListing/ProductListing";
 import ProductFilters from "../../components/ProductFilters/ProductFilters";
 import SortSelect from "../../components/SortSelect/SortSelect";
+import Drawer from "../../components/Drawer/Drawer";
+import { FilterIcon } from "../../components/Icons/Icons";
 import { products } from "../../data/products";
 import { matchesFilters, matchesSearch, sortProducts } from "../../utils/productFilters";
 import "./ProductListingPage";
@@ -26,8 +28,7 @@ function ProductListingPage() {
   const search = searchParams.get("filter") || "";
   const [selectedFilters, setSelectedFilters] = useState(EMPTY_FILTERS);
   const [sortOrder, setSortOrder] = useState("relevance");
-
-
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Marca ou desmarca uma opção de filtro
   function handleFilterChange(field, inputType, value, checked) {
@@ -69,26 +70,33 @@ function ProductListingPage() {
       <span className="listing-page__count"> - {productCountText}</span>
     </>
   );
-
+  const filtersProps = {
+    selectedFilters,
+    onChange: handleFilterChange,
+    onClear: clearFilters,
+  };
 
   return (
     <Layout>
       <div className="container listing-page">
+
         <Section title={title} className="listing-page__section">
           <div className="listing-page__toolbar">
             <SortSelect value={sortOrder} onChange={setSortOrder} />
+            <button
+              className="listing-page__filter-button"
+              onClick={() => setIsFilterOpen(true)}
+              aria-label="Abrir filtros"
+            >
+              <FilterIcon />
+            </button>
           </div>
 
 
           <div className="listing-page__body">
             <aside className="listing-page__sidebar">
               <h2 className="listing-page__sidebar-title">Filtrar por</h2>
-              <ProductFilters
-                selectedFilters={selectedFilters}
-                onChange={handleFilterChange}
-                onClear={clearFilters}
-              />
-
+              <ProductFilters {...filtersProps} idPrefix="sidebar" />
             </aside>
 
 
@@ -97,7 +105,20 @@ function ProductListingPage() {
 
         </Section>
       </div>
-    </Layout>
+
+      {/* Painel de filtros do celular */}
+      <Drawer
+        isOpen={isFilterOpen}
+        onClose={() => setIsFilterOpen(false)}
+        title="Filtrar por"
+        showCloseButton
+      >
+        <div className="listing-page__drawer-filters">
+          <ProductFilters {...filtersProps} idPrefix="drawer" />
+        </div>
+      </Drawer>
+
+    </Layout >
   );
 }
 
