@@ -49,3 +49,31 @@
 .special-offer__button {
   width: 200px;
 }
+
+/* Celular e tablet: imagem em cima do texto  */
+@media (max-width: 1024px) {
+  .special-offer__content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .special-offer__image {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .special-offer__subtitle {
+    color: var(--warning);
+  }
+
+  .special-offer__title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+
+  .special-offer__description {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}

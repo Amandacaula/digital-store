@@ -36,3 +36,19 @@
 .category-icon:hover .category-icon__name {
   color: var(--primary);
 }
+
+@media (max-width: 768px) {
+  .category-icon__circle {
+    width: 80px;
+    height: 80px;
+  }
+
+  .category-icon__circle svg {
+    width: 44px;
+    height: 44px;
+  }
+
+  .category-icon__name {
+    font-size: 12px;
+  }
+}

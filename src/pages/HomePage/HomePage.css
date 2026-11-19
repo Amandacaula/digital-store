@@ -17,3 +17,26 @@
   justify-content: center;
   gap: 48px;
 }
+
+/* Celular e tablet */
+@media (max-width: 1024px) {
+  .home-page {
+    gap: 48px;
+    padding-bottom: 60px;
+  }
+
+  .home-page__collections {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* As categorias viram uma lista com rolagem para o lado */
+  .home-page__categories {
+    justify-content: flex-start;
+    gap: 24px;
+    margin: 0 -16px;
+    padding: 4px 16px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}

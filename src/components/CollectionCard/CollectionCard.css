@@ -47,3 +47,20 @@
   background-color: var(--primary);
   color: var(--white);
 }
+
+@media (max-width: 768px) {
+  .collection-card__badge {
+    top: 20px;
+    left: 20px;
+  }
+
+  .collection-card__button {
+    bottom: 20px;
+    left: 20px;
+    width: 120px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+
