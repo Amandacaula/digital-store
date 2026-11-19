@@ -8,6 +8,8 @@ import CartPage from './pages/CartPage/CartPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage/OrderSuccessPage';
 import LoginPage from './pages/LoginPage/LoginPage';
+import SignupPage from './pages/SignupPage/SignupPage';
+import SignupFormPage from './pages/SignupFormPage/SignupFormPage';
 
 function App() {
   
@@ -27,10 +29,10 @@ function App() {
       />
       <Route path="/meus-pedidos" element={<MessagePage title="Meus Pedidos" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
       />
-      <Route path="/cadastro" element={<MessagePage title="Cadastre-se" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
-      />
 
       <Route path="/login" element={<LoginPage />} />
+      <Route path="/cadastro" element={<SignupPage />} />
+      <Route path="/cadastro/formulario" element={<SignupFormPage />} />
       <Route path="/esqueci-minha-senha" element={<MessagePage title="Esqueci minha senha" text="A recuperação de senha ainda está em construção. Por favor, volte mais tarde." />}
       />
 
