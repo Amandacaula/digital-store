@@ -9,7 +9,7 @@ import Drawer from "../../components/Drawer/Drawer";
 import { FilterIcon } from "../../components/Icons/Icons";
 import { products } from "../../data/products";
 import { matchesFilters, matchesSearch, sortProducts } from "../../utils/productFilters";
-import "./ProductListingPage";
+import "./ProductListingPage.css";
 
 const EMPTY_FILTERS = {
   brand: [],
