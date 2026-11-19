@@ -1,28 +1,11 @@
-import { useEffect, useState } from "react";
 import { CartContext } from "./CartContext";
-import { initialCartItems, MAX_QUANTITY } from "../data/cart";
-
-const STORAGE_KEY = "digital-store:cart";
-
-function loadCart() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : initialCartItems;
-  } catch {
-    return initialCartItems;
-  }
-}
+import { usePersistentState } from "../hooks/usePersistentState";
+import { coupons, getCartSummary, initialCartItems, MAX_QUANTITY } from "../data/cart";
 
 function CartProvider({ children }) {
-  const [items, setItems] = useState(loadCart);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-    } catch (error) {
-      console.error("Não foi possível salvar no navegador.", error);
-    }
-  }, [items]);
+  const [items, setItems] = usePersistentState("digital-store:cart", initialCartItems);
+  const [couponCode, setCouponCode] = usePersistentState("digital-store:coupon", null);
+  const [cep, setCep] = usePersistentState("digital-store:cep", null);
 
   function addItem({ productId, size, color, quantity = 1 }) {
     const id = `${productId}-${size}-${color}`;
@@ -52,9 +35,36 @@ function CartProvider({ children }) {
     setItems((currentItems) => currentItems.filter((item) => item.id !== id));
   }
 
+  function clearCart() {
+    setItems([]);
+    setCouponCode(null);
+    setCep(null);
+  }
+
+  function applyCoupon(code) {
+    const normalizedCode = code.toUpperCase();
+    const isValid = coupons[normalizedCode] !== undefined;
+    setCouponCode(isValid ? normalizedCode : null);
+    return isValid;
+  }
+
   const itemCount = items.reduce((total, item) => total + item.quantity, 0);
 
-  const value = { items, itemCount, addItem, updateQuantity, removeItem };
+  const summary = getCartSummary(items, couponCode, cep);
+
+  const value = {
+    items,
+    itemCount,
+    couponCode,
+    cep,
+    ...summary,
+    addItem,
+    updateQuantity,
+    removeItem,
+    clearCart,
+    applyCoupon,
+    setShippingCep: setCep,
+  };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }

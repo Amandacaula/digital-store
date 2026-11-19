@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import SearchBar from "../SearchBar/SearchBar";
 import Navigation from "../Navigation/Navigation";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import MiniCart from "../MiniCart/MiniCart";
 import { MenuIcon, SearchIcon } from "../Icons/Icons";
 import miniCart from "../../assets/mini-cart.svg";
 import { useCart } from "../../hooks/useCart";
@@ -14,6 +15,28 @@ function Header() {
   const { itemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartAreaRef = useRef(null);
+
+  useEffect(() => {
+    if (!isCartOpen) return;
+
+    function handleClickOutside(event) {
+      if (!cartAreaRef.current.contains(event.target)) setIsCartOpen(false);
+    }
+
+    function handleKeyDown(event) {
+      if (event.key === "Escape") setIsCartOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isCartOpen]);
 
   return (
     <header className="header">
@@ -46,10 +69,21 @@ function Header() {
             <SearchIcon />
           </button>
 
-          <Link to="/carrinho" className="header_cart" aria-label={`Carrinho com ${itemCount} itens`}>
-            <img src={miniCart} alt="" />
-            {itemCount > 0 && <span className="header_cart-count">{itemCount}</span>}
-          </Link>
+          <div className="header_cart-area" ref={cartAreaRef}>
+            <button
+              type="button"
+              className="header_cart"
+              onClick={() => setIsCartOpen(!isCartOpen)}
+              aria-label={`Carrinho com ${itemCount} itens`}
+              aria-expanded={isCartOpen}
+              aria-controls="mini-cart"
+            >
+              <img src={miniCart} alt="" />
+              {itemCount > 0 && <span className="header_cart-count">{itemCount}</span>}
+            </button>
+
+            {isCartOpen && <MiniCart id="mini-cart" onClose={() => setIsCartOpen(false)} />}
+          </div>
         </div>
         {/*Busca que aparece abaixo do cabeçalho no cel*/}
         {isSearchOpen && <SearchBar className="header__search-mobile" />}

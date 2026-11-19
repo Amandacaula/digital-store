@@ -19,6 +19,17 @@
   color: var(--error);
 }
 
+.cart-total--highlight {
+  padding: 20px;
+  border: 1px solid #fbe9c9;
+  border-radius: var(--radius);
+  background-color: #fffaf1;
+}
+
+.cart-total--highlight .cart-total__value {
+  color: var(--dark-gray);
+}
+
 .cart-total__installments {
   margin-top: 6px;
   text-align: right;

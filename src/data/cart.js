@@ -30,3 +30,13 @@ export function getCartItemDetails(item) {
     oldTotalPrice: hasDiscount ? product.price * item.quantity : undefined,
   };
 }
+
+export function getCartSummary(items, couponCode, cep) {
+  const cartItems = items.map(getCartItemDetails);
+  const subtotal = cartItems.reduce((total, item) => total + item.totalPrice, 0);
+  const shipping = cep === null || subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_PRICE;
+  const discount = couponCode ? Math.min(coupons[couponCode], subtotal) : 0;
+  const total = subtotal + shipping - discount;
+
+  return { cartItems, subtotal, shipping, discount, total };
+}

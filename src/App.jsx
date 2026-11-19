@@ -5,6 +5,8 @@ import ProductListingPage from './pages/ProductListingPage/ProductListingPage';
 import ProductView from './pages/ProductView/ProductView';
 import MessagePage from './pages/MessagePage/MessagePage';
 import CartPage from './pages/CartPage/CartPage';
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
+import OrderSuccessPage from './pages/OrderSuccessPage/OrderSuccessPage';
 
 function App() {
   
@@ -17,8 +19,8 @@ function App() {
       <Route path="/product/:id" element={<ProductView />} />
       <Route path="/carrinho" element={<CartPage />} />
 
-      <Route path="/checkout" element={<MessagePage title="Finalizar compra" text="Esta página ainda está em construção. Por favor, volte mais tarde." />}
-      />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route path="/compra-realizada" element={<OrderSuccessPage />} />
 
       <Route path="/categorias" element={<MessagePage title="Categorias" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
       />

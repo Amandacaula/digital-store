@@ -1,35 +1,32 @@
-import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import CartItem from "../../components/CartItem/CartItem";
 import CartForm from "../../components/CartForm/CartForm";
 import CartSummary from "../../components/CartSummary/CartSummary";
-import CartTotal from "../../components/CartTotal/CartTotal";
+import CheckoutBar from "../../components/CheckoutBar/CheckoutBar";
 import Section from "../../components/Section/Section";
 import ProductListing from "../../components/ProductListing/ProductListing";
 import { useCart } from "../../hooks/useCart";
 import { products } from "../../data/products";
-import { coupons, FREE_SHIPPING_FROM, getCartItemDetails, SHIPPING_PRICE } from "../../data/cart";
+import { coupons, FREE_SHIPPING_FROM } from "../../data/cart";
 import { formatPrice } from "../../utils/formatPrice";
+import { formatCep, onlyDigits } from "../../utils/masks";
 import "./CartPage.css";
 
-function formatCep(value) {
-  const digits = value.replace(/\D/g, "").slice(0, 8);
-  return digits.length > 5 ? `${digits.slice(0, 5)}-${digits.slice(5)}` : digits;
-}
-
 function CartPage() {
-  const { items, updateQuantity, removeItem } = useCart();
+  const {
+    items,
+    cartItems,
+    subtotal,
+    shipping,
+    discount,
+    total,
+    updateQuantity,
+    removeItem,
+    applyCoupon,
+    setShippingCep,
+  } = useCart();
   const navigate = useNavigate();
-  const [couponCode, setCouponCode] = useState(null);
-  const [cep, setCep] = useState(null);
-
-  const cartItems = items.map(getCartItemDetails);
-
-  const subtotal = cartItems.reduce((total, item) => total + item.totalPrice, 0);
-  const shipping = cep === null || subtotal >= FREE_SHIPPING_FROM ? 0 : SHIPPING_PRICE;
-  const discount = couponCode ? Math.min(coupons[couponCode], subtotal) : 0;
-  const total = subtotal + shipping - discount;
 
   const productIdsInCart = items.map((item) => item.productId);
   const relatedProducts = products
@@ -37,14 +34,11 @@ function CartPage() {
     .slice(0, 4);
 
   function handleCoupon(code) {
-    const normalizedCode = code.toUpperCase();
-
-    if (!coupons[normalizedCode]) {
-      setCouponCode(null);
+    if (!applyCoupon(code)) {
       return { type: "error", text: "Cupom inválido." };
     }
 
-    setCouponCode(normalizedCode);
+    const normalizedCode = code.toUpperCase();
     return {
       type: "success",
       text: `Cupom ${normalizedCode} aplicado: ${formatPrice(coupons[normalizedCode])} de desconto.`,
@@ -52,12 +46,12 @@ function CartPage() {
   }
 
   function handleShipping(value) {
-    if (value.replace(/\D/g, "").length !== 8) {
-      setCep(null);
+    if (onlyDigits(value).length !== 8) {
+      setShippingCep(null);
       return { type: "error", text: "Digite um CEP com 8 números." };
     }
 
-    setCep(value);
+    setShippingCep(value);
     return {
       type: "success",
       text: `Frete calculado para ${value}. Grátis em compras a partir de ${formatPrice(FREE_SHIPPING_FROM)}.`,
@@ -151,14 +145,7 @@ function CartPage() {
           )}
         </div>
 
-        <div className="checkout-bar">
-          <div className="container checkout-bar__content">
-            <CartTotal total={total} />
-            <button type="button" className="checkout-bar__button" onClick={handleContinue}>
-              Continuar
-            </button>
-          </div>
-        </div>
+        <CheckoutBar total={total} buttonLabel="Continuar" onButtonClick={handleContinue} />
       </div>
     </Layout>
   );
