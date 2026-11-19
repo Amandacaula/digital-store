@@ -1,3 +1,20 @@
+.my-info__edit {
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+.my-info__edit:hover {
+  color: var(--tertiary);
+}
+
+.my-info__message {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--success);
+}
+
 .my-info__block {
   padding: 20px 0;
   border-bottom: 1px solid var(--light-gray-2);
@@ -6,4 +23,68 @@
 .my-info__block:last-child {
   padding-bottom: 0;
   border-bottom: none;
+}
+
+.my-info__form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.my-info__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 0;
+  border: none;
+  border-bottom: 1px solid var(--light-gray-2);
+}
+
+.my-info__fieldset legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.my-info__form .form-field__input[readonly] {
+  color: var(--light-gray);
+  cursor: not-allowed;
+}
+
+.my-info__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding-top: 20px;
+}
+
+.my-info__cancel,
+.my-info__save {
+  height: 40px;
+  padding: 0 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+}
+
+.my-info__cancel {
+  background-color: var(--light-gray-3);
+  color: var(--dark-gray-2);
+}
+
+.my-info__save {
+  background-color: var(--primary);
+  color: var(--white);
+  transition: background-color 0.2s;
+}
+
+.my-info__save:hover {
+  background-color: var(--tertiary);
+}
+
+@media (max-width: 768px) {
+  .my-info__actions button {
+    flex: 1;
+  }
 }

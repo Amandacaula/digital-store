@@ -50,12 +50,21 @@ function AuthProvider({ children }) {
     setSessionEmail(null);
   }
 
+  function updateUser(data) {
+    const profile = Object.fromEntries(profileFieldNames.map((name) => [name, data[name]]));
+
+    setUsers((currentUsers) =>
+      currentUsers.map((item) => (item.email === sessionEmail ? { ...item, ...profile, email: item.email } : item))
+    );
+  }
+
   const value = {
     user,
     emailExists,
     register,
     login,
     logout,
+    updateUser,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
