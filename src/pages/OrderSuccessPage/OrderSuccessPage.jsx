@@ -3,25 +3,8 @@ import Layout from "../Layout/Layout";
 import MessagePage from "../MessagePage/MessagePage";
 import OrderItem from "../../components/OrderItem/OrderItem";
 import CartTotal from "../../components/CartTotal/CartTotal";
+import InfoList from "../../components/InfoList/InfoList";
 import "./OrderSuccessPage.css";
-
-function OrderInfo({ title, rows }) {
-  return (
-    <section className="order-success__block">
-      <h2 className="order-success__subtitle">{title}</h2>
-      <dl className="order-success__list">
-        {rows
-          .filter((row) => row.value)
-          .map((row) => (
-            <div key={row.label} className="order-success__row">
-              <dt>{row.label}:</dt>
-              <dd>{row.value}</dd>
-            </div>
-          ))}
-      </dl>
-    </section>
-  );
-}
 
 function OrderSuccessPage() {
   const { state } = useLocation();
@@ -55,7 +38,8 @@ function OrderSuccessPage() {
             com sucesso!
           </h1>
 
-          <OrderInfo
+          <InfoList
+            className="order-success__block"
             title="Informações Pessoais"
             rows={[
               { label: "Nome", value: customer.name },
@@ -65,7 +49,8 @@ function OrderSuccessPage() {
             ]}
           />
 
-          <OrderInfo
+          <InfoList
+            className="order-success__block"
             title="Informações de Entrega"
             rows={[
               { label: "Endereço", value: delivery.address },
@@ -76,7 +61,7 @@ function OrderSuccessPage() {
             ]}
           />
 
-          <OrderInfo title="Informações de Pagamento" rows={paymentRows} />
+          <InfoList className="order-success__block" title="Informações de Pagamento" rows={paymentRows} />
 
           <section className="order-success__block">
             <h2 className="order-success__subtitle">Resumo da compra</h2>

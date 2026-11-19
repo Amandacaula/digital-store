@@ -51,28 +51,6 @@
   color: var(--dark-gray-2);
 }
 
-.order-success__list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.order-success__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  font-size: 14px;
-  letter-spacing: 0.25px;
-}
-
-.order-success__row dt {
-  color: var(--light-gray);
-}
-
-.order-success__row dd {
-  color: var(--dark-gray);
-}
-
 .order-success__items {
   display: flex;
   flex-direction: column;

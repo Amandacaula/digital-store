@@ -10,6 +10,8 @@ import OrderSuccessPage from './pages/OrderSuccessPage/OrderSuccessPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import SignupFormPage from './pages/SignupFormPage/SignupFormPage';
+import MyInfoPage from './pages/MyInfoPage/MyInfoPage';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   
@@ -36,6 +38,9 @@ function App() {
       <Route path="/esqueci-minha-senha" element={<MessagePage title="Esqueci minha senha" text="A recuperação de senha ainda está em construção. Por favor, volte mais tarde." />}
       />
 
+      <Route path="/minhas-informacoes" element={<PrivateRoute><MyInfoPage /></PrivateRoute>} />
+      <Route path="/metodos-de-pagamento" element={<PrivateRoute><MessagePage title="Métodos de Pagamento" text="Esta página ainda está em construção. Por favor, volte mais tarde." /></PrivateRoute>}
+      />
 
       <Route path="*" element={<MessagePage title="Página não encontrada" text="O endereço acessado não existe." />}
       />

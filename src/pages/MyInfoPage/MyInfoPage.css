@@ -1,0 +1,9 @@
+.my-info__block {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--light-gray-2);
+}
+
+.my-info__block:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
