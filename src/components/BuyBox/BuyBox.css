@@ -122,3 +122,14 @@
 .buy-box__buy-button:hover {
   filter: brightness(0.92);
 }
+
+@media (max-width: 768px) {
+  .buy-box__name {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .buy-box__buy-button {
+    width: 100%;
+  }
+}

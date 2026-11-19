@@ -2,6 +2,7 @@
   padding-top: 30px;
   padding-bottom: 100px;
 }
+
 /* Galeria à esquerda e caixa de compra à direita */
 .product-view__main {
   display: flex;
@@ -13,7 +14,31 @@
 .product-view__gallery {
   flex: 0 1 700px;
 }
+
 .product-view__main .buy-box {
   flex: 1;
   max-width: 440px;
+}
+
+/*  Celular e tablet: um embaixo do outro  */
+@media (max-width: 1024px) {
+  .product-view {
+    padding-bottom: 60px;
+  }
+
+  .product-view__main {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 32px;
+    margin: 20px 0 48px;
+  }
+
+  .product-view__gallery {
+    flex: none;
+    margin: 0 auto;
+  }
+
+  .product-view__main .buy-box {
+    max-width: none;
+  }
 }
