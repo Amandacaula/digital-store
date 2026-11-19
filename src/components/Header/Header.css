@@ -74,3 +74,55 @@
 .header_navigation {
     padding-bottom: 24px;
 }
+
+/* Botões que só aparecem no celular */
+.header__icon-button {
+  display: none;
+  color: var(--dark-gray-2);
+}
+
+.header__search-button.is-active {
+  color: var(--primary);
+}
+
+.header__search-mobile {
+  display: none;
+}
+
+/* ---------- Celular e tablet ---------- */
+@media (max-width: 1024px) {
+  .header__top {
+    gap: 16px;
+    padding: 20px 0;
+  }
+
+  .header__icon-button {
+    display: flex;
+  }
+
+  .header__search-button {
+    margin-left: auto;
+    color: var(--light-gray);
+  }
+
+  .header__cart {
+    margin-left: 0;
+  }
+
+  .header__menu-button {
+    margin-right: auto;
+  }
+
+  /* No celular a busca, os links e a navegação saem do topo */
+  .header__search,
+  .header__actions,
+  .header__navigation {
+    display: none;
+  }
+
+  .header__search-mobile {
+    display: flex;
+    max-width: none;
+    margin-bottom: 20px;
+  }
+}

@@ -8,3 +8,10 @@
     height:44px;
 
 }
+
+@media (max-width: 1024px) {
+  .logo img {
+    width: 138px;
+    height: auto;
+  }
+}

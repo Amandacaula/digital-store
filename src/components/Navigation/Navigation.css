@@ -3,6 +3,11 @@
     gap: 32px;
 }
 
+.navigation--column ul {
+  flex-direction: column;
+  gap: 20px;
+}
+
 .navigation__link{
     display: inline-block;
     padding-bottom: 4px;

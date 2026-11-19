@@ -4,7 +4,7 @@ import "./Navigation.css";
 
 const product_routes = ["/produtos", "/products", "/product/"];
 //NAvegação principal do site, com links para as principais páginas
-  function Navigation() {
+  function Navigation({ direction = "row", onNavigate}) {
     const { pathname } = useLocation();
 
     function isActive(link) {
@@ -14,10 +14,11 @@ const product_routes = ["/produtos", "/products", "/product/"];
         return pathname === link;
     }
  return (
-    <nav className="navigation" aria-label="Navegação principal">
+    <nav className={`navigation navigation--${direction}`} aria-label="Navegação principal">
       <ul>
         {mainLinks.map((item) => (
           <li key={item.link}>
+
             <NavLink
               to={item.link}
               className={() =>
@@ -25,6 +26,7 @@ const product_routes = ["/produtos", "/products", "/product/"];
                   ? "navigation__link active"
                   : "navigation__link"
               }
+              onClick={onNavigate}
             >
               {item.text}
             </NavLink>
