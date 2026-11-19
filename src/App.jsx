@@ -10,6 +10,7 @@ import OrderSuccessPage from './pages/OrderSuccessPage/OrderSuccessPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import SignupPage from './pages/SignupPage/SignupPage';
 import SignupFormPage from './pages/SignupFormPage/SignupFormPage';
+import MyOrdersPage from './pages/MyOrdersPage/MyOrdersPage';
 import MyInfoPage from './pages/MyInfoPage/MyInfoPage';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
@@ -29,8 +30,6 @@ function App() {
 
       <Route path="/categorias" element={<MessagePage title="Categorias" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
       />
-      <Route path="/meus-pedidos" element={<MessagePage title="Meus Pedidos" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
-      />
 
       <Route path="/login" element={<LoginPage />} />
       <Route path="/cadastro" element={<SignupPage />} />
@@ -38,6 +37,7 @@ function App() {
       <Route path="/esqueci-minha-senha" element={<MessagePage title="Esqueci minha senha" text="A recuperação de senha ainda está em construção. Por favor, volte mais tarde." />}
       />
 
+      <Route path="/meus-pedidos" element={<PrivateRoute><MyOrdersPage /></PrivateRoute>} />
       <Route path="/minhas-informacoes" element={<PrivateRoute><MyInfoPage /></PrivateRoute>} />
       <Route path="/metodos-de-pagamento" element={<PrivateRoute><MessagePage title="Métodos de Pagamento" text="Esta página ainda está em construção. Por favor, volte mais tarde." /></PrivateRoute>}
       />

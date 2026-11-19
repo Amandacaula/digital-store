@@ -51,6 +51,14 @@
   color: var(--dark-gray-2);
 }
 
+.order-success__number {
+  padding-top: 16px;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-3);
+}
+
 .order-success__items {
   display: flex;
   flex-direction: column;
@@ -86,6 +94,14 @@
   transition: filter 0.2s;
 }
 
+.order-success__orders {
+  margin-bottom: -16px;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  text-decoration: underline;
+  color: var(--primary);
+}
+
 .order-success__home:hover {
   filter: brightness(0.92);
 }
@@ -119,6 +135,7 @@
   .header,
   .footer,
   .order-success__print,
+  .order-success__orders,
   .order-success__home {
     display: none;
   }

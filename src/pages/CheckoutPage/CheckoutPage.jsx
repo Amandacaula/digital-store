@@ -6,6 +6,8 @@ import OrderSummary from "../../components/OrderSummary/OrderSummary";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import CheckoutBar from "../../components/CheckoutBar/CheckoutBar";
 import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
+import { profileFieldNames } from "../../data/account";
 import { cardFields, checkoutSections, emptyCheckoutForm, paymentMethods } from "../../data/checkout";
 import { validateCheckout } from "../../utils/formValidation";
 import { onlyDigits } from "../../utils/masks";
@@ -17,7 +19,10 @@ function CheckoutPage() {
   const { cartItems, subtotal, shipping, discount, total, cep, clearCart } = useCart();
   const navigate = useNavigate();
 
-  const [form, setForm] = useState({ ...emptyCheckoutForm, cep: cep ?? "" });
+  const { user, addOrder } = useAuth();
+
+  const userData = user ? Object.fromEntries(profileFieldNames.map((name) => [name, user[name] ?? ""])) : {};
+  const [form, setForm] = useState({ ...emptyCheckoutForm, ...userData, cep: cep ?? userData.cep ?? "" });
   const [errors, setErrors] = useState({});
   const [isFinished, setIsFinished] = useState(false);
 
@@ -66,8 +71,10 @@ function CheckoutPage() {
     };
 
     setIsFinished(true);
+    const number = addOrder(order);
+
     clearCart();
-    navigate("/compra-realizada", { state: { order } });
+    navigate("/compra-realizada", { state: { order: { ...order, number } } });
   }
 
   if (cartItems.length === 0) {

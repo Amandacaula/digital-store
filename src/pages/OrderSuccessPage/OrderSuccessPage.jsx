@@ -4,10 +4,12 @@ import MessagePage from "../MessagePage/MessagePage";
 import OrderItem from "../../components/OrderItem/OrderItem";
 import CartTotal from "../../components/CartTotal/CartTotal";
 import InfoList from "../../components/InfoList/InfoList";
+import { useAuth } from "../../hooks/useAuth";
 import "./OrderSuccessPage.css";
 
 function OrderSuccessPage() {
   const { state } = useLocation();
+  const { user } = useAuth();
   const order = state?.order;
 
   if (!order) {
@@ -37,6 +39,8 @@ function OrderSuccessPage() {
             <br />
             com sucesso!
           </h1>
+
+          {order.number && <p className="order-success__number">Pedido nº {order.number}</p>}
 
           <InfoList
             className="order-success__block"
@@ -79,6 +83,12 @@ function OrderSuccessPage() {
             Imprimir Recibo
           </button>
         </div>
+
+        {user && (
+          <Link to="/meus-pedidos" className="order-success__orders">
+            Ver meus pedidos
+          </Link>
+        )}
 
         <Link to="/" className="order-success__home">
           Voltar para Home

@@ -6,6 +6,7 @@ import { profileFieldNames } from "../data/account";
 function AuthProvider({ children }) {
   const [users, setUsers] = usePersistentState("digital-store:users", []);
   const [sessionEmail, setSessionEmail] = usePersistentState("digital-store:session", null);
+  const [orders, setOrders] = usePersistentState("digital-store:orders", []);
 
   const findUser = (email) => users.find((user) => user.email === email.trim().toLowerCase());
 
@@ -58,13 +59,33 @@ function AuthProvider({ children }) {
     );
   }
 
+  function addOrder(order) {
+    if (!user) return null;
+
+    const number = String(Date.now()).slice(-10);
+    const newOrder = {
+      ...order,
+      number,
+      userEmail: user.email,
+      date: new Date().toISOString(),
+      status: "inTransit",
+    };
+
+    setOrders((currentOrders) => [newOrder, ...currentOrders]);
+    return number;
+  }
+
+  const userOrders = user ? orders.filter((order) => order.userEmail === user.email) : [];
+
   const value = {
     user,
+    userOrders,
     emailExists,
     register,
     login,
     logout,
     updateUser,
+    addOrder,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
