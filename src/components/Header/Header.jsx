@@ -11,7 +11,7 @@ import { useCart } from "../../hooks/useCart";
 import "./Header.css";
 
 
-function Header() {
+function Header({ simple = false }) {
   const { itemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -37,6 +37,16 @@ function Header() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isCartOpen]);
+
+  if (simple) {
+    return (
+      <header className="header header--simple">
+        <div className="container header__simple">
+          <Logo />
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header className="header">

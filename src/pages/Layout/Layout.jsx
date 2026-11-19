@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import "./Layout.css";
 
-function Layout({ children }) {
+function Layout({ children, simpleHeader = false }) {
   const { pathname } = useLocation();
 
 
@@ -17,7 +17,7 @@ function Layout({ children }) {
 
   return (
     <div className="layout">
-      <Header/>
+      <Header simple={simpleHeader} />
 
       <main className="layout_content">
         {children}

@@ -7,6 +7,7 @@ import MessagePage from './pages/MessagePage/MessagePage';
 import CartPage from './pages/CartPage/CartPage';
 import CheckoutPage from './pages/CheckoutPage/CheckoutPage';
 import OrderSuccessPage from './pages/OrderSuccessPage/OrderSuccessPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 function App() {
   
@@ -26,10 +27,14 @@ function App() {
       />
       <Route path="/meus-pedidos" element={<MessagePage title="Meus Pedidos" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
       />
-      <Route path="/login" element={<MessagePage title="Entrar" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
-      />
       <Route path="/cadastro" element={<MessagePage title="Cadastre-se" text="Esta página ainda está em construção. Por favor, volte mais tarde." />} 
       />
+
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/esqueci-minha-senha" element={<MessagePage title="Esqueci minha senha" text="A recuperação de senha ainda está em construção. Por favor, volte mais tarde." />}
+      />
+
+
       <Route path="*" element={<MessagePage title="Página não encontrada" text="O endereço acessado não existe." />}
       />
     </Routes>

@@ -49,6 +49,13 @@
     background-color: var(--tertiary);
 }
 
+.header__simple {
+    display: flex;
+    justify-content: center;
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
 .header_cart-area {
     position: relative;
 }
