@@ -105,6 +105,11 @@
   color: var(--dark-gray-2);
 }
 
+.buy-box__message {
+  font-size: 14px;
+  color: var(--error);
+}
+
 .buy-box__buy-button {
   width: 220px;
   height: 48px;

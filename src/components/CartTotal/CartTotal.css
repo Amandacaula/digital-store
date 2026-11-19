@@ -1,0 +1,39 @@
+.cart-total__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cart-total__label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray);
+}
+
+.cart-total__value {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--error);
+}
+
+.cart-total--highlight {
+  padding: 20px;
+  border: 1px solid #fbe9c9;
+  border-radius: var(--radius);
+  background-color: #fffaf1;
+}
+
+.cart-total--highlight .cart-total__value {
+  color: var(--dark-gray);
+}
+
+.cart-total__installments {
+  margin-top: 6px;
+  text-align: right;
+  font-size: 12px;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-3);
+}

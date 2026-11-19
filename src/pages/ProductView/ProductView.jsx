@@ -1,4 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useCart } from "../../hooks/useCart";
 import Layout from "../Layout/Layout";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import Gallery from "../../components/Gallery/Gallery";
@@ -18,6 +20,27 @@ import "./ProductViewPage.css";
 function ProductViewPage() {
     const { id } = useParams();
     const product = getProductById(id);
+    const navigate = useNavigate();
+    const { addItem } = useCart();
+
+    const [choice, setChoice] = useState({ productId: null, size: null, color: null, message: null });
+    const currentChoice = choice.productId === product?.id ? choice : { size: null, color: null, message: null };
+
+    function choose(field, value) {
+        setChoice({ ...currentChoice, productId: product.id, [field]: value, message: null });
+    }
+
+    function handleBuy() {
+        const missing = !currentChoice.size ? "um tamanho" : !currentChoice.color ? "uma cor" : null;
+
+        if (missing) {
+            setChoice({ ...currentChoice, productId: product.id, message: `Escolha ${missing} antes de comprar.` });
+            return;
+        }
+
+        addItem({ productId: product.id, size: currentChoice.size, color: currentChoice.color });
+        navigate("/carrinho");
+    }
 
 
     // Se o id não existir, mostra a página de "não encontrado"
@@ -64,16 +87,18 @@ function ProductViewPage() {
                         price={product.price}
                         priceDiscount={product.priceDiscount}
                         description={product.description}
+                        onBuy={handleBuy}
+                        message={currentChoice.message}
                     >
                         <div>
                             <h2 className="buy-box__option-title">Tamanho</h2>
-                            <ProductOptions key={`size-${product.id}`} options={product.sizes} shape="square" type="text" radius="4px" />
+                            <ProductOptions key={`size-${product.id}`} options={product.sizes} shape="square" type="text" radius="4px" onChange={(size) => choose("size", size)} />
                         </div>
 
 
                         <div>
                             <h2 className="buy-box__option-title">Cor</h2>
-                            <ProductOptions key={`color-${product.id}`} options={product.colors} shape="circle" type="color" />
+                            <ProductOptions key={`color-${product.id}`} options={product.colors} shape="circle" type="color" onChange={(color) => choose("color", color)} />
 
                         </div>
                     </BuyBox>

@@ -18,3 +18,31 @@
   color: var(--dark-gray-2);
   text-decoration: underline;
 }
+
+.mobile-menu__account {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--light-gray-2);
+}
+
+.mobile-menu__account-link {
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}
+
+.mobile-menu__account-link:hover,
+.mobile-menu__account-link.active {
+  color: var(--primary);
+}
+
+.mobile-menu__title {
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}

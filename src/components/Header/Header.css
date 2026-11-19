@@ -49,6 +49,17 @@
     background-color: var(--tertiary);
 }
 
+.header__simple {
+    display: flex;
+    justify-content: center;
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.header_cart-area {
+    position: relative;
+}
+
 .header_cart {
     position: relative;
     display: flex;
@@ -91,7 +102,7 @@
 
 /* ---------- Celular e tablet ---------- */
 @media (max-width: 1024px) {
-  .header__top {
+  .header_top {
     gap: 16px;
     padding: 20px 0;
   }
@@ -105,7 +116,7 @@
     color: var(--light-gray);
   }
 
-  .header__cart {
+  .header_cart {
     margin-left: 0;
   }
 
@@ -114,9 +125,9 @@
   }
 
   /* No celular a busca, os links e a navegação saem do topo */
-  .header__search,
-  .header__actions,
-  .header__navigation {
+  .header_search,
+  .header_actions,
+  .header_navigation {
     display: none;
   }
 

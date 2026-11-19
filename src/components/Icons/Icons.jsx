@@ -152,3 +152,28 @@ export function SneakerIcon() {
 }
 
 
+
+
+export function GmailIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M2 6.5V18.5C2 19.33 2.67 20 3.5 20H6.5V10.75L12 14.75L17.5 10.75V20H20.5C21.33 20 22 19.33 22 18.5V6.5L12 13.75L2 6.5Z" fill="#EA4335" />
+      <path d="M2 6.5L6.5 9.8V20H3.5C2.67 20 2 19.33 2 18.5V6.5Z" fill="#4285F4" />
+      <path d="M22 6.5L17.5 9.8V20H20.5C21.33 20 22 19.33 22 18.5V6.5Z" fill="#34A853" />
+      <path d="M17.5 4.5V9.8L22 6.5V5.75C22 4.2 20.24 3.32 19 4.25L17.5 4.5Z" fill="#FBBC04" />
+      <path d="M2 6.5V5.75C2 4.2 3.76 3.32 5 4.25L6.5 5.35V9.8L2 6.5Z" fill="#C5221F" />
+    </svg>
+  );
+}
+
+export function FacebookIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="11" fill="#1877F2" />
+      <path
+        d="M13.4 23V14.6H16.2L16.6 11.4H13.4V9.4C13.4 8.5 13.7 7.8 15 7.8H16.7V5C16.4 5 15.4 4.9 14.3 4.9C11.9 4.9 10.3 6.3 10.3 9V11.4H7.5V14.6H10.3V23"
+        fill="white"
+      />
+    </svg>
+  );
+}

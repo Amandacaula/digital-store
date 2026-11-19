@@ -236,3 +236,10 @@ export const products = [
 export function getProductById(id) {
   return products.find((product) => product.id === Number(id));
 }
+
+export const colorNames = {
+  "#6FEEFF": "Azul claro",
+  "#FF6969": "Vermelho",
+  "#5E5E5E": "Cinza",
+  "#6D70B7": "Roxo",
+};
