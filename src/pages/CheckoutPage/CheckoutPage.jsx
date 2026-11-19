@@ -7,7 +7,7 @@ import CartTotal from "../../components/CartTotal/CartTotal";
 import CheckoutBar from "../../components/CheckoutBar/CheckoutBar";
 import { useCart } from "../../hooks/useCart";
 import { cardFields, checkoutSections, emptyCheckoutForm, paymentMethods } from "../../data/checkout";
-import { validateCheckout } from "../../utils/checkoutValidation";
+import { validateCheckout } from "../../utils/formValidation";
 import { onlyDigits } from "../../utils/masks";
 import "./CheckoutPage.css";
 
