@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { startTransition, useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import SearchBar from "../SearchBar/SearchBar";
 import Navigation from "../Navigation/Navigation";
@@ -8,11 +8,14 @@ import MiniCart from "../MiniCart/MiniCart";
 import { MenuIcon, SearchIcon } from "../Icons/Icons";
 import miniCart from "../../assets/mini-cart.svg";
 import { useCart } from "../../hooks/useCart";
+import { useAuth } from "../../hooks/useAuth";
 import "./Header.css";
 
 
 function Header({ simple = false }) {
   const { itemCount } = useCart();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -37,6 +40,13 @@ function Header({ simple = false }) {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isCartOpen]);
+
+  function handleLogout() {
+    startTransition(() => {
+      navigate("/");
+      logout();
+    });
+  }
 
   if (simple) {
     return (
@@ -64,12 +74,25 @@ function Header({ simple = false }) {
 
           <SearchBar className="header_search" />
           <div className="header_actions">
-            <Link to="/cadastro" className="header_signup">
-              Cadastre-se
-            </Link>
-            <Link to="/login" className="header_login">
-              Entrar
-            </Link>
+            {user ? (
+              <>
+                <Link to="/minhas-informacoes" className="header_signup">
+                  Olá, {user.name.split(" ")[0]}
+                </Link>
+                <button type="button" className="header_login" onClick={handleLogout}>
+                  Sair
+                </button>
+              </>
+            ) : (
+              <>
+                <Link to="/cadastro" className="header_signup">
+                  Cadastre-se
+                </Link>
+                <Link to="/login" className="header_login">
+                  Entrar
+                </Link>
+              </>
+            )}
           </div>
           <button
             className={`header__icon-button header__search-button ${isSearchOpen ? "is-active" : ""}`}
@@ -103,7 +126,7 @@ function Header({ simple = false }) {
           <Navigation />
         </div>
       </div>
-      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} onLogout={handleLogout} />
     </header>
   );
 }
