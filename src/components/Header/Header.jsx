@@ -6,12 +6,12 @@ import Navigation from "../Navigation/Navigation";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import { MenuIcon, SearchIcon } from "../Icons/Icons";
 import miniCart from "../../assets/mini-cart.svg";
+import { useCart } from "../../hooks/useCart";
 import "./Header.css";
-
-const CART_ITEMS = 2;
 
 
 function Header() {
+  const { itemCount } = useCart();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -46,10 +46,10 @@ function Header() {
             <SearchIcon />
           </button>
 
-          <div className="header_cart" aria-label={`Carrinho com ${CART_ITEMS} itens`}>
-            <img src={miniCart} alt="Carrinho de compras" />
-            <span className="header_cart-count">{CART_ITEMS}</span>
-          </div>
+          <Link to="/carrinho" className="header_cart" aria-label={`Carrinho com ${itemCount} itens`}>
+            <img src={miniCart} alt="" />
+            {itemCount > 0 && <span className="header_cart-count">{itemCount}</span>}
+          </Link>
         </div>
         {/*Busca que aparece abaixo do cabeçalho no cel*/}
         {isSearchOpen && <SearchBar className="header__search-mobile" />}

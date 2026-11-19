@@ -6,7 +6,7 @@ import "./ProductOptions.css";
  * Lista de variações do produto (tamanhos ou cores) para a pessoa escolher.
  */
 
-function ProductOptions({ options, shape = "square", type = "text", radius = "0px" }) {
+function ProductOptions({ options, shape = "square", type = "text", radius = "0px", onChange }) {
   // Opção escolhida (null = nenhuma ainda)
   const [selectedOption, setSelectedOption] = useState(null);
 
@@ -30,7 +30,10 @@ function ProductOptions({ options, shape = "square", type = "text", radius = "0p
             type="button"
             className={`product-options__item product-options__item--${shape} product-options__item--${type} ${isSelected ? "is-selected" : ""}`}
             style={style}
-            onClick={() => setSelectedOption(option)}
+            onClick={() => {
+              setSelectedOption(option);
+              onChange?.(option);
+            }}
             aria-pressed={isSelected}
             aria-label={type === "color" ? `Cor ${option}` : `Tamanho ${option}`}
           >

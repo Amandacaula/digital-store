@@ -1,0 +1,84 @@
+.cart-form__label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}
+
+.cart-form__row {
+  display: flex;
+  gap: 10px;
+}
+
+.cart-form__input {
+  flex: 1;
+  min-width: 0;
+  height: 60px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: var(--light-gray-3);
+  font-family: inherit;
+  font-size: 16px;
+  letter-spacing: 0.75px;
+  color: var(--dark-gray-2);
+}
+
+.cart-form__input::placeholder {
+  color: var(--light-gray);
+}
+
+.cart-form__input:focus {
+  border-color: var(--primary);
+}
+
+.cart-form__input[aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.cart-form__button {
+  width: 114px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background-color: var(--light-gray-3);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  color: var(--primary);
+  transition: background-color 0.2s;
+}
+
+.cart-form__button:hover {
+  background-color: var(--primary-g);
+}
+
+.cart-form__feedback {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.cart-form__feedback--success {
+  color: var(--success);
+}
+
+.cart-form__feedback--error {
+  color: var(--error);
+}
+
+@media (max-width: 768px) {
+  .cart-form__row {
+    flex-direction: column;
+  }
+
+  .cart-form__input,
+  .cart-form__button {
+    flex: none;
+    width: 100%;
+    height: 48px;
+  }
+}

@@ -23,6 +23,8 @@ function BuyBox({
     priceDiscount,
     description,
     children,
+    onBuy,
+    message,
 }) {
     const hasDiscount = priceDiscount !== undefined;
 
@@ -87,8 +89,9 @@ function BuyBox({
             {children}
 
 
-            {/* Botão apenas visual: o carrinho de compras não faz parte do projeto */}
-            <button type="button" className="buy-box__buy-button">
+            {message && <p className="buy-box__message" role="alert">{message}</p>}
+
+            <button type="button" className="buy-box__buy-button" onClick={onBuy}>
                 Comprar
             </button>
         </div>
